@@ -8,14 +8,24 @@
 
 using namespace std;
 
-// Title:     			  
+// Title:     			  A - Shizuku Hoshikawa and Farm Legs
 // Author(s):  			  Sebastian Aguilar
 // Creation Date:		  11/30/25
 // Last update:			  11/30/25
 // Version:				  1.0.0
 
 
-int configs(){
+int configs(int n){
+    
+
+    // if the input is an odd number we cant make a valid config
+    if (n&1)
+        return 0;
+    
+    n>>=2;
+    n++;
+    return n;
+
     
     
     
@@ -25,7 +35,14 @@ int configs(){
 
 
 int main(){
-    
+    int t;
+    int n;
+    cin>>t;
+
+    while (t--){
+        cin>>n;
+        cout<<configs(n)<<endl;
+    }
 
 
 
