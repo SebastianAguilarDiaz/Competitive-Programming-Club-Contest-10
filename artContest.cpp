@@ -9,7 +9,7 @@
 
 using namespace std;
 
-// Title:     			  
+// Title:     			  B - ASCII Art Contest
 // Author(s):  			  Sebastian Aguilar
 // Creation Date:		  11/30/25
 // Last update:			  11/30/25
