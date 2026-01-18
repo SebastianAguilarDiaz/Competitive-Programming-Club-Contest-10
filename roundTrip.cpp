@@ -17,9 +17,9 @@ using namespace std;
 
 
 
-void dfs(int actual_node, int target_node,vector<vector<int>> &graph, vector<bool> &visited,vector <int> &path, vector <int> &final_path){
+void dfs(const int &actual_node,const int &target_node,vector<vector<int>> &graph, vector<bool> &visited,vector <int> &path, vector <int> &final_path){
     if (final_path.size()> 0) return;
-    if (actual_node==target_node && path.size()>3) {final_path=path; final_path.push_back(target_node);}
+    if (actual_node==target_node && path.size()>2) {final_path=path; final_path.push_back(target_node);}
 
     if (visited[actual_node])   return;
 
@@ -47,20 +47,30 @@ int main(){
 
     }
     while(cities){
-        for(int n:graph.at(cities)){
-            vector<bool> visited(graph.size(),false);
-            vector<int> path;
-            path.push_back(cities);
-            visited.at(cities)=true;
-            dfs(n,cities,graph,visited,path,final_path);
-            path.push_back(cities);
-            // for (int k:final_path) cout<<k<<"\t";
-            // cout<<endl;
-        }
+        // for(int n:graph.at(cities)){
+        //     vector<bool> visited(graph.size(),false);
+        //     vector<int> path;
+        //     path.push_back(cities);
+        //     visited.at(cities)=true;
+        //     dfs(n,cities,graph,visited,path,final_path);
+        //     path.push_back(cities);
+        //     // for (int k:final_path) cout<<k<<"\t";
+        //     // cout<<endl;
+        // }
+        if (graph.at(cities).size()<2) continue;
+        vector<bool> visited(graph.size(),false);
+        vector<int> path;
+        dfs(cities,cities,graph,visited,path,final_path);
         cities--;
     }
-    for (int n: final_path){
-        cout<<n<<"\t";
+    
+    if (final_path.size()!=0){
+        cout<<final_path.size()<<endl;
+        for(int n:final_path)
+            cout<<n<<' ';
+    }
+    else{
+        cout<<"IMPOSSIBLE";
     }
 
 
